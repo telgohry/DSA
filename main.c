@@ -11,18 +11,7 @@ int main() {
 
     createEmptyList(&list);
 
-    insertInSortedList(&list, 20);
-    printf("size: %d\n", list.listSize);
-    printList(&list);
 
-    insertInSortedList(&list, 15);
-    printf("size: %d\n", list.listSize);
-    printList(&list);
-
-    insertInSortedList(&list, 12);
-    printf("size: %d\n", list.listSize);
-    printList(&list);
-    /*
     insertAtEndList(&list, 3);
     printf("size: %d\n", list.listSize);
     printList(&list);
@@ -46,7 +35,27 @@ int main() {
     insertInSortedList(&list, 18);
     printf("size: %d\n", list.listSize);
     printList(&list);
-    */
+
+    deleteFromHeadList(&list);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
+    deleteFromHeadList(&list);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
+    deleteFromList(&list, 2);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
+    deleteFromList(&list, 2);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
+    deleteFromList(&list, 1);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
 
     system("pause");
     return 0;

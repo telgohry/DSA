@@ -34,7 +34,10 @@ int32_t insertInSortedList(ST_list_t *list, int32_t data);
 /*************************************************************************/
 /*                         DELETING FROM LINKED LIST                     */
 /*************************************************************************/
+int32_t deleteFromHeadList(ST_list_t *list);
+int32_t deleteFromEndList(ST_list_t *list);
 int32_t deleteFromList(ST_list_t *list, int32_t position);
+
 void printList(ST_list_t *list);
 int32_t getNodeData(ST_list_t *list, int32_t nodeNumber, int32_t *nodeData);
 int32_t isTail(ST_listNode_t node);
