@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Dev/clion/cmake-build-debug",
-		"source" : "C:/Dev/clion"
+		"build" : "C:/Dev/DSA/DSA/cmake-build-debug",
+		"source" : "C:/Dev/DSA/DSA"
 	},
 	"version" : 
 	{

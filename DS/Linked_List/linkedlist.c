@@ -23,6 +23,9 @@ int32_t insertAtEndList(ST_list_t *list, int32_t data)
 {
     ST_listNode_t *temp = (ST_listNode_t*)malloc(sizeof(ST_listNode_t));
 
+    temp->data = data;
+    temp->next = NULL;
+
     if(list->head == NULL)
     {
         list->head = temp;
@@ -39,31 +42,71 @@ int32_t insertAtEndList(ST_list_t *list, int32_t data)
         t->next = temp;
         list->listSize++;
     }
-    temp->data = data;
-    temp->next = NULL;
 }
 
 int32_t insertToList(ST_list_t *list, int32_t position, int32_t data)
 {
     ST_listNode_t *temp = (ST_listNode_t*)malloc(sizeof(ST_listNode_t));
-    temp->data = data;
+    ST_listNode_t *ptr = list->head;
 
-    if(position < 0 || position > list->listSize)
+    if(position == 0)
+    {
+        temp->data = data;
+        temp->next = list->head;
+        list->head = temp;
+        list->listSize++;
+    }
+    else if(position > 0 && position <= list->listSize)
+    {
+        for(uint32_t i=0; i<position-1&&ptr; i++)
+        {
+            ptr = ptr->next;
+        }
+
+        if(ptr)
+        {
+            temp->data = data;
+            temp->next = ptr->next;
+            ptr->next = temp;
+            list->listSize++;
+        }
+    }
+    else
     {
         printf("Invalid position\n");
-        return 0;
     }
 
-    ST_listNode_t *t = list->head;
+}
 
-    for(int32_t i=0; i<position-1; i++)
+int32_t insertInSortedList(ST_list_t *list, int32_t data)
+{
+    ST_listNode_t *p;
+    p = list->head;
+
+    if(list->head == NULL || p->data > data)
     {
-        t = t->next;
+        insertAtHeadList(list, data);
     }
+    else
+    {
+        ST_listNode_t *q;
+        ST_listNode_t *temp;
 
-    temp->next = t->next;
-    t->next = temp;
-    list->listSize++;
+        temp = (ST_listNode_t*)malloc(sizeof(ST_listNode_t));
+
+        q = NULL;
+        temp->data = data;
+
+        while(p->data < data)
+        {
+            q = p;
+            p = p->next;
+        }
+
+        temp->next = q->next;
+        q->next = temp;
+        list->listSize++;
+    }
 }
 
 
@@ -84,7 +127,7 @@ void printList(ST_list_t *list)
         printf("%d  ", tempNode->data);
         tempNode = tempNode->next;
     }
-    printf("\n");
+    printf("\n\n");
 }
 
 int32_t getNodeData(ST_list_t *list, int32_t nodeNumber, int32_t *nodeData);

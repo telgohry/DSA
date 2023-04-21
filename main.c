@@ -10,21 +10,43 @@ int main() {
     ST_list_t list;
 
     createEmptyList(&list);
-    insertAtEndList(&list, 5);
-    insertAtEndList(&list, 6);
+
+    insertInSortedList(&list, 20);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
+    insertInSortedList(&list, 15);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
+    insertInSortedList(&list, 12);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+    /*
+    insertAtEndList(&list, 3);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
     insertAtEndList(&list, 7);
     printf("size: %d\n", list.listSize);
     printList(&list);
 
-    insertAtHeadList(&list, 2);
-    insertAtHeadList(&list, 3);
+    insertAtEndList(&list, 9);
     printf("size: %d\n", list.listSize);
     printList(&list);
 
-    insertToList(&list, 3, 10);
+    insertAtEndList(&list, 15);
     printf("size: %d\n", list.listSize);
     printList(&list);
 
+    insertAtEndList(&list, 20);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+
+    insertInSortedList(&list, 18);
+    printf("size: %d\n", list.listSize);
+    printList(&list);
+    */
 
     system("pause");
     return 0;
